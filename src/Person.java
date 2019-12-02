@@ -1,13 +1,15 @@
 class Person {
-    private static String name;
+    private String name;
     public Person(String newName){
         name = newName;
     }
+
+
     public String getName(){
         return name;
     }
-    public void setName(String name) {
-        Person.name = name;
+    public void setName(String input) {
+        name = input;
     }
     public void sayHello(){
         System.out.printf("Hello there, %s\n", name);
