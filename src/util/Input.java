@@ -25,16 +25,23 @@ public class Input {
     }
 
     public static int getInt(int min, int max) {
-        int check;
+        String check;
         System.out.printf("Enter integer value between %s and %s:\n", min, max);
-        check = scanner.nextInt();
-        if (check < min || check > max) {
-            System.out.println("That number is not in range.");
-            check = getInt(min, max);
-            return check;
-        }
-        else {
-            return check;
+        check = scanner.next();
+        int number;
+        try {
+            number = Integer.parseInt(check);
+            if (number < min || number > max) {
+                System.out.println("That number is not in range.");
+                number = getInt(min, max);
+                return number;
+            }
+            else {
+                return number;
+            }
+        } catch (NumberFormatException nfe){
+            System.out.println("Wrong input. try again: ");
+            return getInt(min, max);
         }
     }
 
@@ -54,8 +61,19 @@ public class Input {
     }
 
     public static int getInt() {
+//        System.out.println("Enter integer value: ");
+//        return scanner.nextInt();
+        String check;
         System.out.println("Enter integer value: ");
-        return scanner.nextInt();
+        check = scanner.next();
+        int number;
+        try {
+            number = Integer.parseInt(check);
+            return number;
+        } catch (NumberFormatException nfe){
+            System.out.println("Wrong input, try again: ");
+            return getInt();
+        }
     }
 
     public static int getInt(String prompt){
@@ -64,16 +82,23 @@ public class Input {
     }
 
     public static double getDouble(double min, double max){
-        double check;
-        System.out.printf("Enter double value between %s and %s:\n", min, max);
-        check = scanner.nextDouble();
-        if (check < min || check >  max) {
-            System.out.println("That number is not in range.");
-            check = getDouble(min, max);
-            return check;
-        }
-        else {
-            return check;
+        String check;
+        System.out.printf("Enter integer value between %s and %s:\n", min, max);
+        check = scanner.next();
+        double number;
+        try {
+            number = Double.parseDouble(check);
+            if (number < min || number > max) {
+                System.out.println("That number is not in range.");
+                number = getDouble(min, max);
+                return number;
+            }
+            else {
+                return number;
+            }
+        } catch (NumberFormatException nfe){
+            System.out.println("Wrong input. try again: ");
+            return getDouble(min, max);
         }
     }
 
@@ -92,8 +117,19 @@ public class Input {
     }
 
     public static double getDouble() {
+//        System.out.println("Enter double value: ");
+//        return scanner.nextDouble();
+        String check;
         System.out.println("Enter double value: ");
-        return scanner.nextDouble();
+        check = scanner.next();
+        double number;
+        try {
+            number = Double.parseDouble(check);
+            return number;
+        } catch (NumberFormatException nfe){
+            System.out.println("Wrong input, try again: ");
+            return getDouble();
+        }
     }
 
     public static double getDouble(String prompt) {
